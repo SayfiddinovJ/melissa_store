@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:melissa_store/data/local/storage_repository.dart';
+import 'package:melissa_store/ui/home/home_screen.dart';
 import 'package:melissa_store/ui/widgets/global_button.dart';
 import 'package:melissa_store/ui/widgets/global_text_field.dart';
 import 'package:melissa_store/utils/extensions/extensions.dart';
@@ -104,9 +106,23 @@ class _AuthScreenState extends State<AuthScreen> {
             40.ph,
             GlobalButton(
               text: 'Kirish',
-              onTap: () {
-                if(loginController.text.isEmpty || passwordController.text.isEmpty) {
-                  Fluttertoast.showToast(msg: 'msg');
+              onTap: () async {
+                if (loginController.text.isEmpty ||
+                    passwordController.text.isEmpty) {
+                  Fluttertoast.showToast(msg: 'Maydonlarni to\'ldiring');
+                } else {
+                  await StorageRepository.putString(
+                      'name', loginController.text);
+                  await StorageRepository.putString(
+                      'password', passwordController.text);
+                  if (context.mounted) {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const HomeScreen(),
+                      ),
+                    );
+                  }
                 }
               },
             ),
