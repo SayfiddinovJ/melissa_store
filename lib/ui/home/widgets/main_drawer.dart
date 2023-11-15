@@ -5,7 +5,9 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:melissa_store/cubit/drawer_cubit.dart';
 import 'package:melissa_store/ui/home/home_screen.dart';
 import 'package:melissa_store/ui/home/sub_screens/categories/categories_screen.dart';
+import 'package:melissa_store/ui/home/sub_screens/debt/debt_screen.dart';
 import 'package:melissa_store/ui/home/sub_screens/products/products_screen.dart';
+import 'package:melissa_store/ui/home/sub_screens/recycle/recycle_screen.dart';
 import 'package:melissa_store/ui/home/sub_screens/report/reports_screen.dart';
 import 'package:melissa_store/utils/extensions/extensions.dart';
 
@@ -48,7 +50,7 @@ class MainDrawer extends StatelessWidget {
                   ],
                 ),
                 40.ph,
-                r(
+                drawerTile(
                   Icons.bar_chart,
                   'Statistika',
                   state == 0,
@@ -56,7 +58,7 @@ class MainDrawer extends StatelessWidget {
                     context.read<DrawerCubit>().changeIndex(0);
                   },
                 ),
-                r(
+                drawerTile(
                   Icons.assignment,
                   'Hisobotlar',
                   state == 1,
@@ -64,7 +66,7 @@ class MainDrawer extends StatelessWidget {
                     context.read<DrawerCubit>().changeIndex(1);
                   },
                 ),
-                r(
+                drawerTile(
                   Icons.card_giftcard,
                   'Mahsulotlar',
                   state == 2,
@@ -72,12 +74,28 @@ class MainDrawer extends StatelessWidget {
                     context.read<DrawerCubit>().changeIndex(2);
                   },
                 ),
-                r(
-                  Icons.widgets_outlined,
+                drawerTile(
+                  Icons.grid_view,
                   'Kategoriyalar',
                   state == 3,
                   () {
                     context.read<DrawerCubit>().changeIndex(3);
+                  },
+                ),
+                drawerTile(
+                  Icons.recycling,
+                  'Qaytgan mahsulotlar',
+                  state == 4,
+                  () {
+                    context.read<DrawerCubit>().changeIndex(4);
+                  },
+                ),
+                drawerTile(
+                  Icons.attach_money,
+                  'Qarzdorlik',
+                  state == 5,
+                  () {
+                    context.read<DrawerCubit>().changeIndex(5);
                   },
                 ),
                 20.ph,
@@ -148,6 +166,22 @@ class MainDrawer extends StatelessWidget {
                 builder: (context) => const CategoriesScreen(),
               ),
               (route) => false);
+        }
+        if (state == 4) {
+          Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const RecycleScreen(),
+              ),
+              (route) => false);
+        }
+        if (state == 5) {
+          Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const DebtScreen(),
+              ),
+              (route) => false);
         } else {
           await Fluttertoast.showToast(msg: 'Sahifa mavjud emas');
         }
@@ -155,7 +189,7 @@ class MainDrawer extends StatelessWidget {
     );
   }
 
-  Widget r(
+  Widget drawerTile(
     IconData iconData,
     String text,
     bool isActive,

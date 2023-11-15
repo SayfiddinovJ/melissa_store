@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:melissa_store/utils/extensions/extensions.dart';
 
-class ProductsTable extends StatelessWidget {
-  const ProductsTable({super.key});
+class DebtTable extends StatelessWidget {
+  const DebtTable({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -11,21 +11,21 @@ class ProductsTable extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         _buildHeaderRow(),
-        _buildDataRow('Amazon', 'Navai', 'Macbook pro', 0),
-        _buildDataRow('Fedex', 'Phoenix.', 'Apple Iphone 12', 1),
-        _buildDataRow('Google', 'Qarchi', 'Xolodilnik', 2),
-        _buildDataRow('Amazon', 'London', 'Tecno quloqchin', 3),
-        _buildDataRow('Ombor-2', 'Urgench', 'Kitob', 4),
-        _buildDataRow('Fedex', 'Andijan', 'Gaz plita', 5),
-        _buildDataRow('Facebook', 'Diller-1', 'Kir yuvish mashinasi', 6),
-        _buildDataRow('Tashkent', 'Diller-2', 'O\'yin stoli', 7),
-        _buildDataRow('Samarqand', 'Phoenix.', 'Sichqoncha', 8),
-        _buildDataRow('Amazon', 'Chicago', 'Telefon g\'ilofi', 9),
-        _buildDataRow('Google', 'Toronto', 'Kompyuter sumkasi', 10),
-        _buildDataRow('Meta', 'Diller-3', 'Ko\'zoynak', 11),
-        _buildDataRow('Google', 'Diller-4', 'Lampochka (12w)', 12),
-        _buildDataRow('Fedex', 'London', 'Oyoq kiyim', 13),
-        _buildDataRow('Google', 'Diller-5', 'Lampochka (12w)', 14),
+        _buildDataRow('Cody', 'Macbook pro', 0),
+        _buildDataRow('Victoria', 'Apple Iphone 12', 1),
+        _buildDataRow('Angel', 'Xolodilnik', 2),
+        _buildDataRow('Cameron', 'Tecno quloqchin', 3),
+        _buildDataRow('Mitchel', 'Kitob', 4),
+        _buildDataRow('Eduardo', 'Gaz plita', 5),
+        _buildDataRow('Arthur', 'Kir yuvish mashinasi', 6),
+        _buildDataRow('Arlene', 'O\'yin stoli', 7),
+        _buildDataRow('Colleen', 'Sichqoncha', 8),
+        _buildDataRow('Darlene', 'Telefon g\'ilofi', 9),
+        _buildDataRow('Arlene', 'Kompyuter sumkasi', 10),
+        _buildDataRow('Shane', 'Ko\'zoynak', 11),
+        _buildDataRow('Greg', 'Lampochka (12w)', 12),
+        _buildDataRow('Diane', 'Oyoq kiyim', 13),
+        _buildDataRow('Kyle', 'Lampochka (12w)', 14),
       ],
     );
   }
@@ -42,9 +42,7 @@ class ProductsTable extends StatelessWidget {
       padding: EdgeInsets.symmetric(vertical: 12.h, horizontal: 20.w),
       child: Row(
         children: [
-          _buildHeaderText('Ombor'),
-          20.pw,
-          _buildHeaderText('Diller'),
+          _buildHeaderText('Mijoz'),
           20.pw,
           _buildHeaderText('Mahsulot'),
         ],
@@ -54,7 +52,7 @@ class ProductsTable extends StatelessWidget {
 
   Widget _buildHeaderText(String text) {
     return SizedBox(
-      width: 80.w,
+      width: 120.w,
       child: Text(
         text,
         style: TextStyle(
@@ -66,18 +64,16 @@ class ProductsTable extends StatelessWidget {
     );
   }
 
-  Widget _buildDataRow(String store, String dealer, String product, int index) {
+  Widget _buildDataRow(String name, String age, int index) {
     return Container(
       decoration:
-          BoxDecoration(color: index.isEven ? null : const Color(0xFFEEEEEE)),
+      BoxDecoration(color: index.isEven ? null : const Color(0xFFEEEEEE)),
       padding: EdgeInsets.symmetric(vertical: 12.h, horizontal: 20.w),
       child: Row(
         children: [
-          _buildDataText(store),
+          _buildDataText(name),
           20.pw,
-          _buildDataText(dealer),
-          20.pw,
-          _buildDataText(product),
+          _buildDataText(age),
         ],
       ),
     );
@@ -85,7 +81,7 @@ class ProductsTable extends StatelessWidget {
 
   Widget _buildDataText(String text) {
     return SizedBox(
-      width: 80.w,
+      width: 120.w,
       child: Text(
         text,
         style: TextStyle(
