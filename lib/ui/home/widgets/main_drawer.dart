@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:melissa_store/cubit/drawer_cubit.dart';
 import 'package:melissa_store/ui/home/home_screen.dart';
+import 'package:melissa_store/ui/home/sub_screens/categories/categories_screen.dart';
+import 'package:melissa_store/ui/home/sub_screens/products/products_screen.dart';
 import 'package:melissa_store/ui/home/sub_screens/report/reports_screen.dart';
 import 'package:melissa_store/utils/extensions/extensions.dart';
 
@@ -69,6 +72,14 @@ class MainDrawer extends StatelessWidget {
                     context.read<DrawerCubit>().changeIndex(2);
                   },
                 ),
+                r(
+                  Icons.widgets_outlined,
+                  'Kategoriyalar',
+                  state == 3,
+                  () {
+                    context.read<DrawerCubit>().changeIndex(3);
+                  },
+                ),
                 20.ph,
                 InkWell(
                   splashColor: const Color(0xFFF44336),
@@ -105,7 +116,7 @@ class MainDrawer extends StatelessWidget {
         );
       },
       buildWhen: (previous, current) => previous != current,
-      listener: (context, state) {
+      listener: (context, state) async {
         if (state == 0) {
           Navigator.pushAndRemoveUntil(
               context,
@@ -121,6 +132,24 @@ class MainDrawer extends StatelessWidget {
                 builder: (context) => const ReportsScreen(),
               ),
               (route) => false);
+        }
+        if (state == 2) {
+          Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const ProductsScreen(),
+              ),
+              (route) => false);
+        }
+        if (state == 3) {
+          Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const CategoriesScreen(),
+              ),
+              (route) => false);
+        } else {
+          await Fluttertoast.showToast(msg: 'Sahifa mavjud emas');
         }
       },
     );
