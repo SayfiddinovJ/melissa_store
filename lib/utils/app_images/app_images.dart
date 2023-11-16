@@ -8,4 +8,6 @@ class AppImages {
   static const String horizontal = 'assets/horizontal.svg';
   static const String chartColumn = 'assets/chart_column.svg';
   static const String employee = 'assets/employee.png';
+  static const String usa = 'assets/usa.png';
+  static const String russia = 'assets/russia.png';
 }

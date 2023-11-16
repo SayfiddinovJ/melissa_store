@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:melissa_store/data/fake_data.dart';
 import 'package:melissa_store/data/models/product_model.dart';
 import 'package:melissa_store/ui/home/sub_screens/widgets/in_out_list_tile.dart';
@@ -56,7 +57,9 @@ class CategoriesScreen extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () async {
+          await Fluttertoast.showToast(msg: 'Sahifa mavjud emas');
+        },
         backgroundColor: const Color(0xFF2196F3),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8.r),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:melissa_store/ui/home/widgets/app_bar_container.dart';
 import 'package:melissa_store/ui/home/widgets/balance_list_tile.dart';
 import 'package:melissa_store/ui/home/widgets/diagram_container.dart';
@@ -57,7 +58,9 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () async {
+          await Fluttertoast.showToast(msg: 'Sahifa mavjud emas');
+        },
         backgroundColor: const Color(0xFF2196F3),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8.r),
