@@ -54,6 +54,7 @@ class DebtScreen extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 20.w),
               child: const DebtTable(),
             ),
+            34.ph,
           ],
         ),
       ),

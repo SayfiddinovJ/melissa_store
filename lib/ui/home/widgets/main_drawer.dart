@@ -9,6 +9,7 @@ import 'package:melissa_store/ui/home/sub_screens/debt/debt_screen.dart';
 import 'package:melissa_store/ui/home/sub_screens/products/products_screen.dart';
 import 'package:melissa_store/ui/home/sub_screens/recycle/recycle_screen.dart';
 import 'package:melissa_store/ui/home/sub_screens/report/reports_screen.dart';
+import 'package:melissa_store/ui/home/sub_screens/store/store_screen.dart';
 import 'package:melissa_store/utils/extensions/extensions.dart';
 
 class MainDrawer extends StatelessWidget {
@@ -98,6 +99,14 @@ class MainDrawer extends StatelessWidget {
                     context.read<DrawerCubit>().changeIndex(5);
                   },
                 ),
+                drawerTile(
+                  Icons.warehouse_outlined,
+                  'Ombor',
+                  state == 6,
+                  () {
+                    context.read<DrawerCubit>().changeIndex(6);
+                  },
+                ),
                 20.ph,
                 InkWell(
                   splashColor: const Color(0xFFF44336),
@@ -180,6 +189,14 @@ class MainDrawer extends StatelessWidget {
               context,
               MaterialPageRoute(
                 builder: (context) => const DebtScreen(),
+              ),
+              (route) => false);
+        }
+        if (state == 6) {
+          Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const StoreScreen(),
               ),
               (route) => false);
         } else {
