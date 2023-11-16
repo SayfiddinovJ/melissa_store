@@ -50,7 +50,7 @@ class ReportsScreen extends StatelessWidget {
             24.ph,
             const ReportSorting(),
             40.ph,
-            const SearchContainer(),
+            const SearchContainer(searchList: []),
             20.ph,
             const StoreTable(),
             34.ph,

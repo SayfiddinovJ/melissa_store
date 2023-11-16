@@ -27,16 +27,16 @@ class ClientScreen extends StatelessWidget {
             const InOutListTile(
               title: '31',
               subtitle: 'Mijozlar',
-              iconData: Icons.fire_truck_outlined,
+              iconData: Icons.groups,
               backgroundColor: Color(0xFFE3F2FD),
               iconColor: Color(0xFF2196F3),
             ),
             20.ph,
-            const SearchContainer(),
+            SearchContainer(searchList: supplierList),
             20.ph,
             ...List.generate(
               supplierList.length,
-                  (index) => SupplierTile(
+              (index) => SupplierTile(
                 name: supplierList[index],
                 onTap1: () {},
                 onTap2: () {},

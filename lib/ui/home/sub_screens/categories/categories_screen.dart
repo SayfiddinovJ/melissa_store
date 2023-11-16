@@ -33,7 +33,12 @@ class CategoriesScreen extends StatelessWidget {
               iconColor: Color(0xFF2196F3),
             ),
             24.ph,
-            const SearchContainer(),
+            SearchContainer(
+              searchList: List.generate(
+                products.length,
+                (index) => products[index].name,
+              ),
+            ),
             14.ph,
             ...List.generate(
               products.length,

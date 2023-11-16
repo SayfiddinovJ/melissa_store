@@ -31,7 +31,9 @@ class StoreScreen extends StatelessWidget {
               iconColor: Color(0xFF2196F3),
             ),
             20.ph,
-            const SearchContainer(),
+            SearchContainer(
+              searchList: List.generate(6, (index) => 'Ombor-$index'),
+            ),
             20.ph,
             ...List.generate(
               6,

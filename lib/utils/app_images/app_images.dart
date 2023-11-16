@@ -7,4 +7,5 @@ class AppImages {
   static const String thirtyFive = 'assets/thirty_five.svg';
   static const String horizontal = 'assets/horizontal.svg';
   static const String chartColumn = 'assets/chart_column.svg';
+  static const String employee = 'assets/employee.png';
 }

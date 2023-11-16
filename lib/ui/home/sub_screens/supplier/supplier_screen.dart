@@ -31,7 +31,7 @@ class SupplierScreen extends StatelessWidget {
               iconColor: Color(0xFF2196F3),
             ),
             20.ph,
-            const SearchContainer(),
+            SearchContainer(searchList: supplierList),
             20.ph,
             ...List.generate(
               supplierList.length,

@@ -47,7 +47,7 @@ class DebtScreen extends StatelessWidget {
             32.ph,
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 20.w),
-              child: const SearchContainer(),
+              child: const SearchContainer(searchList: []),
             ),
             20.ph,
             Padding(

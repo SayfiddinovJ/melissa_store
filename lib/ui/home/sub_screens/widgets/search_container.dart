@@ -4,7 +4,9 @@ import 'package:melissa_store/ui/widgets/searcher.dart';
 import 'package:melissa_store/utils/extensions/extensions.dart';
 
 class SearchContainer extends StatelessWidget {
-  const SearchContainer({super.key});
+  const SearchContainer({super.key, required this.searchList});
+
+  final List<String> searchList;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +17,7 @@ class SearchContainer extends StatelessWidget {
             onTap: () {
               showSearch(
                 context: context,
-                delegate: ProductSearchDelegate([]),
+                delegate: ProductSearchDelegate(searchList),
               );
             },
             child: Container(
