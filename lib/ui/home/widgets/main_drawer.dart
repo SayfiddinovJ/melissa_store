@@ -5,6 +5,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:melissa_store/cubit/drawer_cubit.dart';
 import 'package:melissa_store/ui/home/home_screen.dart';
 import 'package:melissa_store/ui/home/sub_screens/categories/categories_screen.dart';
+import 'package:melissa_store/ui/home/sub_screens/client/client_screen.dart';
 import 'package:melissa_store/ui/home/sub_screens/debt/debt_screen.dart';
 import 'package:melissa_store/ui/home/sub_screens/products/products_screen.dart';
 import 'package:melissa_store/ui/home/sub_screens/recycle/recycle_screen.dart';
@@ -116,6 +117,14 @@ class MainDrawer extends StatelessWidget {
                     context.read<DrawerCubit>().changeIndex(7);
                   },
                 ),
+                drawerTile(
+                  Icons.groups_2,
+                  'Mijozlar',
+                  state == 8,
+                  () {
+                    context.read<DrawerCubit>().changeIndex(8);
+                  },
+                ),
                 20.ph,
                 InkWell(
                   splashColor: const Color(0xFFF44336),
@@ -214,6 +223,14 @@ class MainDrawer extends StatelessWidget {
               context,
               MaterialPageRoute(
                 builder: (context) => const SupplierScreen(),
+              ),
+              (route) => false);
+        }
+        if (state == 8) {
+          Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const ClientScreen(),
               ),
               (route) => false);
         } else {
